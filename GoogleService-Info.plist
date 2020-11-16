@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>896109720508-n560evdkk1r2c26b0pgq1cg9dkq90ap7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.896109720508-n560evdkk1r2c26b0pgq1cg9dkq90ap7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCT0xVHL2IiRuAsyCFKJdlbF_dxoQ9RLXk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>896109720508</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>rit.LetsCook</string>
+	<key>PROJECT_ID</key>
+	<string>letscook-8d568</string>
+	<key>STORAGE_BUCKET</key>
+	<string>letscook-8d568.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:896109720508:ios:c7db051667ab8a911771b9</string>
+	<key>DATABASE_URL</key>
+	<string>https://letscook-8d568.firebaseio.com</string>
+</dict>
+</plist>
