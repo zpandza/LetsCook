@@ -20,6 +20,13 @@ struct Recipe: Codable, Identifiable {
     let cookingDuration: Int
     let ingredients: [String]
     let tutorial: String
+    /*
+     Need to add..
+     createdBy: Int
+     createdOnDate: Date
+     rating?
+     
+     */
 }
 
 enum RecipeDifficulty: Int, CustomStringConvertible, Codable {

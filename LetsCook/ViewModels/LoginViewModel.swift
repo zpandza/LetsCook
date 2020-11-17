@@ -13,8 +13,14 @@ class LoginViewModel: ObservableObject {
     
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var isLoggedIn: Bool = true
-
+    @Published var isLoggedIn: Bool = false
+    @Published var isSignUp: Bool = false
+    
+    //SIGNUP STATES
+    @Published var signUpEmail: String = ""
+    @Published var signUpPassword: String = ""
+    @Published var signUpPasswordRepeat = ""
+    
     func signIn() {
         print("Email is \(email) and password is \(password)")
         Auth.auth().signIn(withEmail: email, password: password, completion: {authResult, err in

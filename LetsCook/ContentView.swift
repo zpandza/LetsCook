@@ -10,34 +10,44 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
-
+    
+    
     var body: some View {
         ZStack {
             if viewModel.isLoggedIn {
                 HomeView(viewModel: viewModel)
             } else {
-                Color("AppBlue").edgesIgnoringSafeArea(.all)
-                
-                VStack {
-                    VStack{
-                        Spacer()
-                        Text("Let's cook!")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        Image("logo")
-                            .resizable()
-                            .frame(width: screenWidth*0.3,
-                                   height: screenWidth*0.3)
-                        Spacer()
-                    }.frame(height: screenHeight*0.3)
-                    LoginFormContainerView(viewModel: viewModel)
-                        .edgesIgnoringSafeArea(.bottom)
+                if !viewModel.isSignUp {
+                    LoginView(viewModel: viewModel)
+                } else {
+                    SignUpView(viewModel: viewModel)
                 }
             }
-//            NavigationLink(destination: Text("Logged in!"), isActive: $viewModel.isLoggedIn){
-//                EmptyView()
-//            }
+        }
+    }
+}
 
+struct LoginView: View {
+    
+    @StateObject var viewModel: LoginViewModel
+    
+    var body: some View {
+        Color("AppBlue").edgesIgnoringSafeArea(.all)
+        
+        VStack {
+            VStack{
+                Spacer()
+                Text("Let's cook!")
+                    .foregroundColor(.white)
+                    .font(.title)
+                Image("logo")
+                    .resizable()
+                    .frame(width: screenWidth*0.3,
+                           height: screenWidth*0.3)
+                Spacer()
+            }.frame(height: screenHeight*0.3)
+            LoginFormContainerView(viewModel: viewModel)
+                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

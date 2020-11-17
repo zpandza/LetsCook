@@ -10,20 +10,22 @@ import SwiftUI
 struct LoginFormContainerView: View {
     
     @ObservedObject var viewModel: LoginViewModel
-
+    
     
     var body: some View {
         ZStack {
             Rectangle().foregroundColor(.white).cornerRadius(25)
             
             VStack (alignment: .leading, spacing: 10){
-                Text("Login")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                
-                Text("Continue after logging in")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                Group{
+                    Text("Login")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                    
+                    Text("Continue after logging in")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
                 
                 Spacer().frame(height: 18)
                 
@@ -58,6 +60,11 @@ struct LoginFormContainerView: View {
                     .background(Color.pink)
                     .cornerRadius(10)
                 }
+                Button(action: {
+                    viewModel.isSignUp.toggle()
+                }, label: {
+                    Text("You don't have account? Click me!")
+                })
                 
                 Spacer()
             }

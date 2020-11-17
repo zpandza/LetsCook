@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4514CCA42563F476004F0DDA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514CCA32563F476004F0DDA /* SignUpView.swift */; };
 		453C239F2563346900ACD1EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C239E2563346900ACD1EB /* SettingsView.swift */; };
 		453C23A22563366600ACD1EB /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C23A12563366600ACD1EB /* RecipeDetailView.swift */; };
 		45FEF95A2562EC9B00D7B936 /* LetsCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEF9592562EC9B00D7B936 /* LetsCookApp.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4514CCA32563F476004F0DDA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		453C239E2563346900ACD1EB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		453C23A12563366600ACD1EB /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		45FEF9562562EC9B00D7B936 /* LetsCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				45FEF9862563265700D7B936 /* RecipeView.swift */,
 				453C239E2563346900ACD1EB /* SettingsView.swift */,
 				453C23A12563366600ACD1EB /* RecipeDetailView.swift */,
+				4514CCA32563F476004F0DDA /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				45FEF984256304DE00D7B936 /* HomeView.swift in Sources */,
 				45FEF98D2563277300D7B936 /* Recipe.swift in Sources */,
 				453C23A22563366600ACD1EB /* RecipeDetailView.swift in Sources */,
+				4514CCA42563F476004F0DDA /* SignUpView.swift in Sources */,
 				45FEF9812562FEF600D7B936 /* LoginViewModel.swift in Sources */,
 				45FEF990256328B500D7B936 /* RecipeDifficulty.swift in Sources */,
 				45FEF96E2562F11A00D7B936 /* LoginFormContainerView.swift in Sources */,
