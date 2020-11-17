@@ -10,6 +10,9 @@
 		4514CCA42563F476004F0DDA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514CCA32563F476004F0DDA /* SignUpView.swift */; };
 		453C239F2563346900ACD1EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C239E2563346900ACD1EB /* SettingsView.swift */; };
 		453C23A22563366600ACD1EB /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C23A12563366600ACD1EB /* RecipeDetailView.swift */; };
+		45937E1625641CAE00E8BBA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1525641CAE00E8BBA9 /* User.swift */; };
+		45937E1925646B2000E8BBA9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1825646B2000E8BBA9 /* Ingredient.swift */; };
+		45937E1C25646CE400E8BBA9 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */; };
 		45FEF95A2562EC9B00D7B936 /* LetsCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEF9592562EC9B00D7B936 /* LetsCookApp.swift */; };
 		45FEF95C2562EC9B00D7B936 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEF95B2562EC9B00D7B936 /* ContentView.swift */; };
 		45FEF95E2562EC9C00D7B936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FEF95D2562EC9C00D7B936 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		4514CCA32563F476004F0DDA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		453C239E2563346900ACD1EB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		453C23A12563366600ACD1EB /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		45937E1525641CAE00E8BBA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		45937E1825646B2000E8BBA9 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		45FEF9562562EC9B00D7B936 /* LetsCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FEF9592562EC9B00D7B936 /* LetsCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsCookApp.swift; sourceTree = "<group>"; };
 		45FEF95B2562EC9B00D7B936 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 			children = (
 				45FEF9892563276300D7B936 /* RecipeViewModel.swift */,
 				45FEF9802562FEF600D7B936 /* LoginViewModel.swift */,
+				45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -131,6 +138,8 @@
 			children = (
 				45FEF98C2563277300D7B936 /* Recipe.swift */,
 				45FEF98F256328B500D7B936 /* RecipeDifficulty.swift */,
+				45937E1525641CAE00E8BBA9 /* User.swift */,
+				45937E1825646B2000E8BBA9 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,11 +232,14 @@
 			files = (
 				45FEF95C2562EC9B00D7B936 /* ContentView.swift in Sources */,
 				45FEF95A2562EC9B00D7B936 /* LetsCookApp.swift in Sources */,
+				45937E1925646B2000E8BBA9 /* Ingredient.swift in Sources */,
 				45FEF9722562F1D200D7B936 /* View+Extensions.swift in Sources */,
 				45FEF98A2563276300D7B936 /* RecipeViewModel.swift in Sources */,
 				45FEF9872563265700D7B936 /* RecipeView.swift in Sources */,
 				45FEF984256304DE00D7B936 /* HomeView.swift in Sources */,
+				45937E1625641CAE00E8BBA9 /* User.swift in Sources */,
 				45FEF98D2563277300D7B936 /* Recipe.swift in Sources */,
+				45937E1C25646CE400E8BBA9 /* IngredientViewModel.swift in Sources */,
 				453C23A22563366600ACD1EB /* RecipeDetailView.swift in Sources */,
 				4514CCA42563F476004F0DDA /* SignUpView.swift in Sources */,
 				45FEF9812562FEF600D7B936 /* LoginViewModel.swift in Sources */,

@@ -62,6 +62,6 @@ struct RecipeDetailView_Previews: PreviewProvider {
                                         description: "Description of recipe",
                                         difficulty: .hard, cookingDuration: 69,
                                         ingredients: ["Lucija", "Roba", "Sanja"],
-                                        tutorial: "kralj"))
+                                        tutorial: "kralj", cuisineType: .bbq))
     }
 }
