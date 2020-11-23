@@ -11,6 +11,17 @@ struct SignUpFormF: View {
     @StateObject var viewModel: LoginViewModel
     
     var body: some View {
+        
+        Text("Full Name")
+            .font(.body)
+            .fontWeight(.bold)
+        
+        TextField("Enter full name", text: $viewModel.signUpFullName)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
+            .autocapitalization(.words)
+            .padding(.bottom, 10)
+        
         Text("Email")
             .font(.body)
             .fontWeight(.bold)
@@ -188,6 +199,7 @@ struct SignUpView: View {
                 Button(action: {
                     page += 1
                     if(page == 3){
+                        viewModel.signUp()
                         progress = 100.0
                     } else {
                         progress = Double(page * 100/3)

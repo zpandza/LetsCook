@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct User: Codable, Identifiable {
-    var id = UUID()
+    @DocumentID var id: String?
     let fullName: String
     let email: String
     let password: String
     let favoriteCuisine: Cuisine
-    let alergies: [String]
-    let dislikedFood: [String]
+    let dislikedFood: [Ingredient]
+    @ServerTimestamp var createdTime: Timestamp?
 }
