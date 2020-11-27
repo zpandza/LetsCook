@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
             endingLineNumber = "222"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
             endingLineNumber = "138"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "FC83E20C-DCA1-40BA-9907-98E381DF635B - fc6c0720962d1b91"
@@ -208,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
             endingLineNumber = "150"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -388,7 +388,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DFE2CE44-4AAF-4601-BB8E-C9ABFFE47B1E - a8d2c5918be4edfb"
+                  uuid = "DFE2CE44-4AAF-4601-BB8E-C9ABFFE47B1E - a8d2c5918be4ea3d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -398,12 +398,12 @@
                   urlString = "file:///Users/zvone/swift_college/final%20project/LetsCook/LetsCook/ViewModels/LoginViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "25">
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "65">
                </Location>
                <Location
-                  uuid = "DFE2CE44-4AAF-4601-BB8E-C9ABFFE47B1E - 7c89b9ad626f05b9"
+                  uuid = "DFE2CE44-4AAF-4601-BB8E-C9ABFFE47B1E - 7c89b9ad626f02c3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -413,8 +413,8 @@
                   urlString = "file:///Users/zvone/swift_college/final%20project/LetsCook/LetsCook/ViewModels/LoginViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
                   offsetFromSymbolStart = "194">
                </Location>
             </Locations>
@@ -432,8 +432,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "201"
             endingLineNumber = "201"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -448,8 +448,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
             endingLineNumber = "202"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -482,38 +482,6 @@
             endingLineNumber = "74"
             landmarkName = "signUp()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FF371053-9EAF-42F4-8104-F511C4FC2DEB - 7c89b9ad626f0281"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LetsCook.LoginViewModel.signUp() -&gt; ()"
-                  moduleName = "LetsCook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zvone/swift_college/final%20project/LetsCook/LetsCook/ViewModels/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "1302">
-               </Location>
-               <Location
-                  uuid = "FF371053-9EAF-42F4-8104-F511C4FC2DEB - 7c89b9ad626f0281"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LetsCook.LoginViewModel.signUp() -&gt; ()"
-                  moduleName = "LetsCook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zvone/swift_college/final%20project/LetsCook/LetsCook/ViewModels/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "3127">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias Codable = Encodable & Decodable
+//typealias Codable = Encodable & Decodable
 
 struct Recipe: Codable, Identifiable {
     var id = UUID()
