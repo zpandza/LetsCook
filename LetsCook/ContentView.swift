@@ -29,7 +29,7 @@ struct ContentView: View {
 
 struct LoginView: View {
     
-    @StateObject var viewModel: LoginViewModel
+    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
         Color("AppBlue").edgesIgnoringSafeArea(.all)
