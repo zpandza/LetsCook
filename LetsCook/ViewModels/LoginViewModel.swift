@@ -26,6 +26,10 @@ class LoginViewModel: ObservableObject {
     @Published var favoriteCousine: Int = 0
     @Published var dislikedFood: [Ingredient] = []
     
+    
+    @Published var currentPage: Int = 0
+    @Published var currentProgress: Double = 0.0
+    
     func isFoodDisliked(ingredient: Ingredient) -> Bool {
         if dislikedFood.contains(where: {
             print($0.name)
@@ -38,6 +42,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func resetValues(){
+        self.signUpFullName = ""
         self.signUpEmail = ""
         self.signUpPassword = ""
         self.signUpPasswordRepeat = ""

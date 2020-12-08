@@ -7,8 +7,70 @@
 
 import SwiftUI
 
+struct SignUpView: View {
+    
+    @State private var validationState: SignUpFormF.ValidationState? = nil
+    @StateObject var viewModel: LoginViewModel
+    
+    var body: some View {
+        
+        let validation = SignUpValidation(viewModel: viewModel, validationState: $validationState)
+        
+        VStack {
+            ProgressView("Progress...", value: viewModel.currentProgress, total: 100)
+                .padding()
+            
+            VStack(alignment: .leading, spacing: 10){
+                if viewModel.currentPage == 0 {
+                    SignUpFormF(viewModel: viewModel, validation: validation)
+                } else if viewModel.currentPage == 1{
+                    SignUpFormS(viewModel: viewModel)
+                } else if viewModel.currentPage == 2{
+                    SignUpFormT(viewModel: viewModel)
+                } else {
+                    Text("Congratulations! You successfully registered!!")
+                    
+                    Text("We sent you verification link to your email. Please verify yourself and then Login to our app!")
+                    
+                    Text("Thank you for your trust.")
+                    
+                    Button(action: {
+                        viewModel.resetValues()
+                        viewModel.isSignUp.toggle()
+                    }, label: {
+                        Text("Back to Login")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+                    })
+                }
+            }.padding()
+            
+            Spacer()
+            Button(action: {
+                viewModel.isSignUp.toggle()
+                viewModel.resetValues()
+                viewModel.currentPage = 0
+            }, label: {
+                Text("You already have account?")
+            })
+        }.alert(item: $validationState) { state in
+            Alert(title: Text(state.errorMessage ?? ""),
+                  message: Text(state.errorDescription ?? ""))
+        }
+    }
+}
+
 struct SignUpFormF: View {
     @StateObject var viewModel: LoginViewModel
+
+    struct ValidationState: Identifiable {
+        let id = UUID()
+        var errorMessage: String? = nil
+        var errorDescription: String? = nil
+    }
+    var validation: SignUpValidation
     
     var body: some View {
         
@@ -17,44 +79,47 @@ struct SignUpFormF: View {
             .fontWeight(.bold)
         
         TextField("Enter full name", text: $viewModel.signUpFullName)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
-            .autocapitalization(.words)
-            .padding(.bottom, 10)
+            .textFieldStyle(TextFieldInvalid(isValid: validation.fullNameValid()))
         
         Text("Email")
             .font(.body)
             .fontWeight(.bold)
         
         TextField("Enter email", text: $viewModel.signUpEmail)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
-            .textContentType(.emailAddress)
-            .autocapitalization(.none)
-            .padding(.bottom, 10)
+            .textFieldStyle(TextFieldInvalid(isValid: validation.emailValid()))
         
         Text("Password")
             .font(.body)
             .fontWeight(.bold)
         
         SecureField("Enter password", text: $viewModel.signUpPassword)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
-            .padding(.bottom, 10)
+            .textFieldStyle(TextFieldInvalid(isValid: validation.passwordValid()))
         
         Text("Repeat Password")
             .font(.body)
             .fontWeight(.bold)
         
         SecureField("Re-enter password", text: $viewModel.signUpPasswordRepeat)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
+            .textFieldStyle(TextFieldInvalid(isValid: viewModel.signUpPassword == viewModel.signUpPasswordRepeat))
         HStack(){
             Spacer()
             Text("Password must containt at least 8 characters!")
                 .font(.caption)
                 .foregroundColor(Color.gray)
         }
+        Button(action: {
+            if validation.firstFormValid() {
+                viewModel.currentPage += 1
+                viewModel.currentProgress = 33.33
+            } else {
+                print("form is invalid")
+            }
+        }) {
+            Text("Proceed")
+                .foregroundColor(.white)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+        }.disabled(validation.firstPageEmpty())
     }
 }
 
@@ -114,6 +179,15 @@ struct SignUpFormS: View {
                     }
                 }
             }
+            Button(action: {
+                viewModel.currentPage += 1
+                viewModel.currentProgress = 66.67
+            }) {
+                Text("Proceed")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+            }
         }
         
         
@@ -152,75 +226,21 @@ struct SignUpFormT: View {
                     }
                 }
             }
-        }
-    }
-}
-
-struct SignUpView: View {
-    
-    @StateObject var viewModel: LoginViewModel
-
-    @State private var progress = 0.0
-    @State private var page: Int = 0
-    
-    var body: some View {
-        VStack {
-            ProgressView("Progress...", value: progress, total: 100)
-                .padding()
-            
-            VStack(alignment: .leading, spacing: 10){
-                if page == 0 {
-                    SignUpFormF(viewModel: viewModel)
-                } else if page == 1{
-                    SignUpFormS(viewModel: viewModel)
-                } else if page == 2{
-                    SignUpFormT(viewModel: viewModel)
-                } else {
-                    Text("Congratulations! You successfully registered!!")
-                    
-                    Text("We sent you verification link to your email. Please verify yourself and then Login to our app!")
-                    
-                    Text("Thank you for your trust.")
-                    
-                    Button(action: {
-                        viewModel.resetValues()
-                        viewModel.isSignUp.toggle()
-                    }, label: {
-                        Text("Back to Login")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
-                    })
-                }
-            }.padding()
-            
-            if(page < 3){
-                Button(action: {
-                    page += 1
-                    if(page == 3){
-                        viewModel.signUp()
-                        progress = 100.0
-                    } else {
-                        progress = Double(page * 100/3)
-                    }
-                }, label: {
-                    Text("Next")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
-                })
-            }
-            
-            Spacer()
             Button(action: {
-                viewModel.isSignUp.toggle()
-            }, label: {
-                Text("You already have account?")
-            })
+                viewModel.currentPage += 1
+                viewModel.currentProgress = 100.0
+                viewModel.signUp()
+            }) {
+                Text("Proceed")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+            }
         }
     }
 }
+
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
