@@ -11,12 +11,12 @@ import Foundation
 
 struct Recipe: Codable, Identifiable {
     var id = UUID()
-    let name: String
+    let name: String 
     let image: String
     let description: String
     let difficulty: RecipeDifficulty
     let cookingDuration: Int
-    let ingredients: [String]
+    let ingredients: [Ingredient]
     let tutorial: String
     let cuisineType: Cuisine
     /*

@@ -15,12 +15,18 @@ struct HomeView: View {
     @ObservedObject var recipeViewModel: RecipeViewModel = RecipeViewModel()
     
     @State private var selectedTab: Int = 1
-    
+    @State private var isCreateRecipeActive: Bool = false
     private var navTitle: String {
         switch selectedTab {
         case 1:
             return "Recipes"
         case 2:
+            return "Search"
+        case 3:
+            return "Create New Recipe"
+        case 4:
+            return "Favorites"
+        case 5:
             return "Settings"
         default:
             return ""
@@ -28,22 +34,51 @@ struct HomeView: View {
     }
     
     var body: some View {
-        
-        NavigationView {
-            TabView(selection: $selectedTab){
-                RecipeView(data: recipeViewModel.recipeData)
-                    .tag(1)
-                    .tabItem {
-                        Image(systemName: "list.bullet")
-                        Text("Recipes")
-                    }
-                SettingsView(viewModel: viewModel)
-                    .tag(2)
-                    .tabItem {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
-            }.navigationTitle(navTitle)
+        ZStack{
+            NavigationView {
+                TabView(selection: $selectedTab){
+                    RecipeView(data: recipeViewModel.recipeData)
+                        .tag(1)
+                        .tabItem {
+                            Image(systemName: "list.bullet")
+                            Text("Recipes")
+                        }
+                    SearchView(recipeViewModel: recipeViewModel)
+                        .tag(2)
+                        .tabItem {
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
+                        }
+                    CreateRecipeView()
+                        .tag(3)
+                        .tabItem {
+                            Image(systemName: "plus")
+                            Text("Create")
+                        }
+                    FavoritesView()
+                        .tag(4)
+                        .tabItem {
+                            Image(systemName: "heart")
+                            Text("Favorites")
+                        }
+                    SettingsView(viewModel: viewModel)
+                        .tag(5)
+                        .tabItem {
+                            Image(systemName: "gear")
+                            Text("Settings")
+                        }
+                }.navigationTitle(navTitle)
+            }
+//            NavigationLink(destination: CreateRecipeView(), isActive: $isCreateRecipeActive){
+//                EmptyView()
+//            }
+//            Button(action: {
+//                isCreateRecipeActive.toggle()
+//            }){
+//                Image(systemName: "plus")
+//            }.background(Circle().frame(width: 60, height: 60).foregroundColor(.blue))
+//                .foregroundColor(.white)
+//                .offset(x: 0, y: 375)
         }
     }
 }

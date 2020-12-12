@@ -12,11 +12,20 @@ struct SettingsView: View {
     @StateObject var viewModel: LoginViewModel
     
     var body: some View {
-        Button(action: {
-            viewModel.signOut()
-        }){
-            Text("Log out")
+        VStack {
+            Button(action: {
+                viewModel.signOut()
+            }){
+                Text("Log out")
+            }
+            
+            Button(action: {
+                print("your recipes")
+            }) {
+                Text("Your recipes")
+            }
         }
+        
     }
 }
 

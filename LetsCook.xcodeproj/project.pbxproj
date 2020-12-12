@@ -15,6 +15,15 @@
 		45937E1625641CAE00E8BBA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1525641CAE00E8BBA9 /* User.swift */; };
 		45937E1925646B2000E8BBA9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1825646B2000E8BBA9 /* Ingredient.swift */; };
 		45937E1C25646CE400E8BBA9 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */; };
+		45A0496225850F0A004CF17C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0496125850F0A004CF17C /* SearchView.swift */; };
+		45A0496525851356004CF17C /* CreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0496425851356004CF17C /* CreateRecipeView.swift */; };
+		45A049682585136F004CF17C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A049672585136F004CF17C /* FavoritesView.swift */; };
+		45A0496B25852448004CF17C /* RecipesWithIngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0496A25852448004CF17C /* RecipesWithIngredientsView.swift */; };
+		45A0496E25853A43004CF17C /* CreateRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0496D25853A43004CF17C /* CreateRecipeViewModel.swift */; };
+		45A0497225853BD8004CF17C /* FirstCreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0497125853BD8004CF17C /* FirstCreateRecipeView.swift */; };
+		45A0497625853BE3004CF17C /* SecondCreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0497525853BE3004CF17C /* SecondCreateRecipeView.swift */; };
+		45A0497925853C77004CF17C /* ThirdCreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0497825853C77004CF17C /* ThirdCreateRecipeView.swift */; };
+		45A0497C25853CA5004CF17C /* ForthCreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0497B25853CA5004CF17C /* ForthCreateRecipeView.swift */; };
 		45FEF95A2562EC9B00D7B936 /* LetsCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEF9592562EC9B00D7B936 /* LetsCookApp.swift */; };
 		45FEF95C2562EC9B00D7B936 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FEF95B2562EC9B00D7B936 /* ContentView.swift */; };
 		45FEF95E2562EC9C00D7B936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FEF95D2562EC9C00D7B936 /* Assets.xcassets */; };
@@ -42,6 +51,15 @@
 		45937E1525641CAE00E8BBA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		45937E1825646B2000E8BBA9 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
+		45A0496125850F0A004CF17C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		45A0496425851356004CF17C /* CreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeView.swift; sourceTree = "<group>"; };
+		45A049672585136F004CF17C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		45A0496A25852448004CF17C /* RecipesWithIngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWithIngredientsView.swift; sourceTree = "<group>"; };
+		45A0496D25853A43004CF17C /* CreateRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewModel.swift; sourceTree = "<group>"; };
+		45A0497125853BD8004CF17C /* FirstCreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCreateRecipeView.swift; sourceTree = "<group>"; };
+		45A0497525853BE3004CF17C /* SecondCreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateRecipeView.swift; sourceTree = "<group>"; };
+		45A0497825853C77004CF17C /* ThirdCreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCreateRecipeView.swift; sourceTree = "<group>"; };
+		45A0497B25853CA5004CF17C /* ForthCreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthCreateRecipeView.swift; sourceTree = "<group>"; };
 		45FEF9562562EC9B00D7B936 /* LetsCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FEF9592562EC9B00D7B936 /* LetsCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsCookApp.swift; sourceTree = "<group>"; };
 		45FEF95B2562EC9B00D7B936 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +97,17 @@
 				457390E3257FE2B9003772B4 /* TextFieldInvalid.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		45A0497025853B6D004CF17C /* CreateRecipeViews */ = {
+			isa = PBXGroup;
+			children = (
+				45A0497125853BD8004CF17C /* FirstCreateRecipeView.swift */,
+				45A0497525853BE3004CF17C /* SecondCreateRecipeView.swift */,
+				45A0497825853C77004CF17C /* ThirdCreateRecipeView.swift */,
+				45A0497B25853CA5004CF17C /* ForthCreateRecipeView.swift */,
+			);
+			path = CreateRecipeViews;
 			sourceTree = "<group>";
 		};
 		45FEF94D2562EC9B00D7B936 = {
@@ -127,12 +156,17 @@
 		45FEF9692562EE5C00D7B936 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45A0497025853B6D004CF17C /* CreateRecipeViews */,
 				45FEF96D2562F11A00D7B936 /* LoginFormContainerView.swift */,
 				45FEF983256304DE00D7B936 /* HomeView.swift */,
 				45FEF9862563265700D7B936 /* RecipeView.swift */,
 				453C239E2563346900ACD1EB /* SettingsView.swift */,
 				453C23A12563366600ACD1EB /* RecipeDetailView.swift */,
 				4514CCA32563F476004F0DDA /* SignUpView.swift */,
+				45A0496125850F0A004CF17C /* SearchView.swift */,
+				45A0496425851356004CF17C /* CreateRecipeView.swift */,
+				45A049672585136F004CF17C /* FavoritesView.swift */,
+				45A0496A25852448004CF17C /* RecipesWithIngredientsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +177,7 @@
 				45FEF9892563276300D7B936 /* RecipeViewModel.swift */,
 				45FEF9802562FEF600D7B936 /* LoginViewModel.swift */,
 				45937E1B25646CE300E8BBA9 /* IngredientViewModel.swift */,
+				45A0496D25853A43004CF17C /* CreateRecipeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -244,7 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A0497925853C77004CF17C /* ThirdCreateRecipeView.swift in Sources */,
+				45A0496B25852448004CF17C /* RecipesWithIngredientsView.swift in Sources */,
+				45A0496525851356004CF17C /* CreateRecipeView.swift in Sources */,
+				45A0496E25853A43004CF17C /* CreateRecipeViewModel.swift in Sources */,
 				45FEF95C2562EC9B00D7B936 /* ContentView.swift in Sources */,
+				45A0496225850F0A004CF17C /* SearchView.swift in Sources */,
 				45FEF95A2562EC9B00D7B936 /* LetsCookApp.swift in Sources */,
 				45937E1925646B2000E8BBA9 /* Ingredient.swift in Sources */,
 				45FEF9722562F1D200D7B936 /* View+Extensions.swift in Sources */,
@@ -253,13 +293,17 @@
 				45FEF984256304DE00D7B936 /* HomeView.swift in Sources */,
 				45937E1625641CAE00E8BBA9 /* User.swift in Sources */,
 				45FEF98D2563277300D7B936 /* Recipe.swift in Sources */,
+				45A049682585136F004CF17C /* FavoritesView.swift in Sources */,
 				457390E4257FE2B9003772B4 /* TextFieldInvalid.swift in Sources */,
 				45937E1C25646CE400E8BBA9 /* IngredientViewModel.swift in Sources */,
 				453C23A22563366600ACD1EB /* RecipeDetailView.swift in Sources */,
 				4514CCA42563F476004F0DDA /* SignUpView.swift in Sources */,
+				45A0497C25853CA5004CF17C /* ForthCreateRecipeView.swift in Sources */,
 				457390E0257FE181003772B4 /* SignUpValidation.swift in Sources */,
 				45FEF9812562FEF600D7B936 /* LoginViewModel.swift in Sources */,
+				45A0497625853BE3004CF17C /* SecondCreateRecipeView.swift in Sources */,
 				45FEF990256328B500D7B936 /* RecipeDifficulty.swift in Sources */,
+				45A0497225853BD8004CF17C /* FirstCreateRecipeView.swift in Sources */,
 				45FEF96E2562F11A00D7B936 /* LoginFormContainerView.swift in Sources */,
 				453C239F2563346900ACD1EB /* SettingsView.swift in Sources */,
 			);

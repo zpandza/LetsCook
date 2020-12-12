@@ -30,6 +30,10 @@ class LoginViewModel: ObservableObject {
     @Published var currentPage: Int = 0
     @Published var currentProgress: Double = 0.0
     
+    init(){
+        isLoggedIn = Auth.auth().currentUser != nil ? true : false
+    }
+    
     func isFoodDisliked(ingredient: Ingredient) -> Bool {
         if dislikedFood.contains(where: {
             print($0.name)

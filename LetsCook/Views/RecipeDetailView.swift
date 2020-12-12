@@ -44,8 +44,8 @@ struct RecipeDetailView: View {
                         .padding(.top)
                         .padding(.horizontal)
 
-                    ForEach(recipe.ingredients, id: \.self){ ingredient in
-                        Text(ingredient)
+                    ForEach(recipe.ingredients){ ingredient in
+                        Text(ingredient.name)
                             .font(.headline)
                             .padding(.horizontal)
                     }
@@ -61,7 +61,7 @@ struct RecipeDetailView_Previews: PreviewProvider {
         RecipeDetailView(recipe: Recipe(name: "Buhac", image: "hamburger",
                                         description: "Description of recipe",
                                         difficulty: .hard, cookingDuration: 69,
-                                        ingredients: ["Lucija", "Roba", "Sanja"],
+                                        ingredients: [Ingredient(name: "Luj", proteins: 10, carbs: 10, fats: 10)],
                                         tutorial: "kralj", cuisineType: .bbq))
     }
 }
