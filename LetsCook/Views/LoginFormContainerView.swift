@@ -57,7 +57,7 @@ struct LoginFormContainerView: View {
                         Text("Login").font(.title).foregroundColor(.white)
                         Spacer()
                     }.padding()
-                    .background(Color.pink)
+                    .background(Color.green)
                     .cornerRadius(10)
                 }
                 Button(action: {

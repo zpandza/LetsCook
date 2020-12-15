@@ -25,13 +25,12 @@ struct TextFieldInvalid: TextFieldStyle {
     
 }
 
-struct TextFieldValid: TextFieldStyle {
+struct RecipeTextFieldStyle: TextFieldStyle {
     
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding()
             .background(RoundedRectangle(cornerRadius: 10, style: .circular).foregroundColor(Color.gray.opacity(0.3)))
-            .autocapitalization(.words)
             .padding(.bottom, 10)
     }
 }

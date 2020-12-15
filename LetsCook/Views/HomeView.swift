@@ -37,13 +37,13 @@ struct HomeView: View {
         ZStack{
             NavigationView {
                 TabView(selection: $selectedTab){
-                    RecipeView(data: recipeViewModel.recipeData)
+                    RecipeView(loginViewModel: viewModel, data: recipeViewModel.recipeData)
                         .tag(1)
                         .tabItem {
                             Image(systemName: "list.bullet")
                             Text("Recipes")
                         }
-                    SearchView(recipeViewModel: recipeViewModel)
+                    SearchView(recipeViewModel: recipeViewModel, loginViewModel: viewModel)
                         .tag(2)
                         .tabItem {
                             Image(systemName: "magnifyingglass")
@@ -55,7 +55,7 @@ struct HomeView: View {
                             Image(systemName: "plus")
                             Text("Create")
                         }
-                    FavoritesView()
+                    FavoritesView(loginViewModel: viewModel)
                         .tag(4)
                         .tabItem {
                             Image(systemName: "heart")

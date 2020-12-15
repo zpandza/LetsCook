@@ -34,6 +34,14 @@ struct CreateRecipeView: View {
                     ForthCreateRecipeView(viewModel: viewModel)
                 } else {
                     Text("Thanks for your recipe :-)")
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                                viewModel.currentPage = 0
+                                viewModel.currentProgress = 0.0
+                                viewModel.restartRecipe()
+                            }
+                        }
+                    
                 }
             }
             Spacer()

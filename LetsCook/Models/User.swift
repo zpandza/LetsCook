@@ -15,6 +15,7 @@ struct User: Codable, Identifiable {
     let email: String
     let password: String
     let favoriteCuisine: Cuisine
-    let dislikedFood: [Ingredient]
+    let dislikedFood: [String]
+    var favorites: [String]
     @ServerTimestamp var createdTime: Timestamp?
 }

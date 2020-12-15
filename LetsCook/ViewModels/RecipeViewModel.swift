@@ -6,22 +6,48 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class RecipeViewModel: ObservableObject {
+    
+    let db = Firestore.firestore()
+
+    
     @Published private(set) var recipeData: [Recipe] = []
     @Published var searchRecipeValue: String = ""
 
-    func getFilteredListByIngredients(ingredients: [Ingredient]) -> [Recipe] {
+    
+    func getFilteredListByCuisine(cuisineType: Int) -> [Recipe] {
+        var tempData: [Recipe] = []
+        recipeData.forEach { recipe in
+            if recipe.cuisineType.rawValue == cuisineType {
+                tempData.append(recipe)
+            }
+        }
+        return tempData
+    }
+    
+    func getFilteredListByDifficulty(difficulty: String) -> [Recipe] {
+        var tempData: [Recipe] = []
+        recipeData.forEach { recipe in
+            if recipe.difficulty.description == difficulty {
+                tempData.append(recipe)
+            }
+        }
+        return tempData
+    }
+    
+    func getFilteredListByIngredients(ingredients: [String]) -> [Recipe] {
         
         var tempData: [Recipe] = []
         
-        var dummy: [Ingredient] = []
-                
+        var dummy: [String] = []
+    
         recipeData.forEach { recipe in
             recipe.ingredients.forEach { recipeIngredient in
                 if ingredients.count > 1 {
                     ingredients.forEach { ingredient in
-                        if ingredient.name == recipeIngredient.name {
+                        if recipeIngredient.contains(ingredient) {
                             dummy.append(ingredient)
                             if dummy.count == ingredients.count {
                                 tempData.append(recipe)
@@ -30,7 +56,7 @@ class RecipeViewModel: ObservableObject {
                     }
                 }
                 else {
-                        if ingredients[0].name == recipeIngredient.name {
+                    if recipeIngredient.contains(ingredients[0]) {
                             tempData.append(recipe)
                         }
                 }
@@ -39,28 +65,6 @@ class RecipeViewModel: ObservableObject {
         
         return tempData
     }
-//    private func getRecipeData(){
-        let data = [
-            Recipe(name: "Hot Dog", image: "hotdog", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim justo, vulputate ut tortor id, fermentum vulputate justo. Cras tristique tellus nec nulla porttitor, sed fringilla turpis hendrerit. Suspendisse sagittis vestibulum magna et convallis. Curabitur vulputate dolor in velit convallis sagittis. Suspendisse potenti.",
-                   difficulty: .easy, cookingDuration: 30, ingredients: [
-                    Ingredient(name: "Nesto", proteins: 4, carbs: 10, fats: 10),
-                    Ingredient(name: "Ketchup", proteins: 2, carbs: 14, fats: 0),
-                   ],
-                   tutorial: "Put the sausage in the bun then add ketchup and mustard", cuisineType: .italian),
-//            Recipe(name: "Pizza", image: "pizza", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim justo, vulputate ut tortor id, fermentum vulputate justo. Cras tristique tellus nec nulla porttitor, sed fringilla turpis hendrerit. Suspendisse sagittis vestibulum magna et convallis. Curabitur vulputate dolor in velit convallis sagittis. Suspendisse potenti.",
-//                   difficulty: .medium, cookingDuration: 40, ingredients: ["150g Ham", "150g Cheese", "Mushrooms", "Ketchup", "Origano"],
-//                   tutorial: "Some description Some description Some description Some description Some description Some description Some descriptiona", cuisineType: .italian),
-//            Recipe(name: "Hamburger", image: "hamburger", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim justo, vulputate ut tortor id, fermentum vulputate justo. Cras tristique tellus nec nulla porttitor, sed fringilla turpis hendrerit. Suspendisse sagittis vestibulum magna et convallis. Curabitur vulputate dolor in velit convallis sagittis. Suspendisse potenti.",
-//                   difficulty: .easy, cookingDuration: 50, ingredients: ["1 Bun", "1 Burger Patty", "Tomato", "Salad", "Ketchup"],
-//                   tutorial: "Some description Some description Some description Some description Some description", cuisineType: .asian),
-//            Recipe(name: "Cheeseburger", image: "cheeseburger", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim justo, vulputate ut tortor id, fermentum vulputate justo. Cras tristique tellus nec nulla porttitor, sed fringilla turpis hendrerit. Suspendisse sagittis vestibulum magna et convallis. Curabitur vulputate dolor in velit convallis sagittis. Suspendisse potenti.",
-//                   difficulty: .medium, cookingDuration: 60, ingredients: ["1 Bun", "1 Burger Patty", "Tomato", "Salad", "Ketchup", "2 slices of cheese"],
-//                   tutorial: "Some description Some description Some description Some description Some description Some description Some description ", cuisineType: .bbq),
-//            Recipe(name: "Buhac", image: "buhac", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim justo, vulputate ut tortor id, fermentum vulputate justo. Cras tristique tellus nec nulla porttitor, sed fringilla turpis hendrerit. Suspendisse sagittis vestibulum magna et convallis. Curabitur vulputate dolor in velit convallis sagittis. Suspendisse potenti.  ",
-//                   difficulty: .hard, cookingDuration: 69, ingredients: ["Lucija", "Roba", "Sanja", ""],
-//                   tutorial: "kralj", cuisineType: .italian),
-        ]
-//    }
     
     func filterList() {
         var tempData: [Recipe]
@@ -69,15 +73,40 @@ class RecipeViewModel: ObservableObject {
                 return recipe.name.lowercased().starts(with: searchRecipeValue.lowercased())
             }
         } else {
-            tempData = data
+            getRecipeData()
+            tempData = recipeData
         }
         
         recipeData = tempData
     }
     
     private func getRecipeData() {
-        recipeData = data
-    }
+        
+        db.collection("recipes").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+              print("No documents")
+              return
+            }
+
+            self.recipeData = documents.map { queryDocumentSnapshot -> Recipe in
+                let data = queryDocumentSnapshot.data()
+//                print(data)
+                
+                let name = data["name"] as? String ?? ""
+                let image = data["image"] as? String ?? ""
+                let description = data["description"] as? String ?? ""
+                let difficulty = data["difficulty"] as? Int ?? 1
+                let cookingDuration = data["cookingDuration"] as? String ?? ""
+                let ingredients = data["ingredients"] as? [String] ?? []
+                let tutorial = data["tutorial"] as? String ?? ""
+                let cuisineType = data["cuisineType"] as? Int ?? 1
+                let createdBy = data["createdBy"] as? String ?? "zvone.pandzaa@gmail.com"
+                
+                return Recipe(name: name, image: image, description: description, difficulty: RecipeDifficulty(rawValue: difficulty)!, cookingDuration: cookingDuration, ingredients: ingredients, tutorial: tutorial, cuisineType: Cuisine(rawValue: cuisineType)!, createdBy: createdBy)
+            }
+          }
+        
+        }
     
     init(){
         getRecipeData()

@@ -9,10 +9,15 @@ import SwiftUI
 
 struct ThirdCreateRecipeView: View {
     
-    var viewModel: CreateRecipeViewModel
+    @StateObject var viewModel: CreateRecipeViewModel
     
     var body: some View {
-        Text("Third")
+        
+        Form {
+            Section(header: Text("Tutorial")){
+                TextField("Steps", text: $viewModel.tutorial)
+            }
+        }
         
         Button(action: {
             viewModel.currentPage += 1
@@ -21,7 +26,7 @@ struct ThirdCreateRecipeView: View {
             Text("Next")
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 6).foregroundColor(.blue))
+        .background(RoundedRectangle(cornerRadius: 6).foregroundColor(.green).opacity(0.7))
         .foregroundColor(.white)
     }
 }

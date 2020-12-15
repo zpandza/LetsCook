@@ -7,7 +7,6 @@
 
 import Foundation
 
-//typealias Codable = Encodable & Decodable
 
 struct Recipe: Codable, Identifiable {
     var id = UUID()
@@ -15,20 +14,16 @@ struct Recipe: Codable, Identifiable {
     let image: String
     let description: String
     let difficulty: RecipeDifficulty
-    let cookingDuration: Int
-    let ingredients: [Ingredient]
+    let cookingDuration: String
+    let ingredients: [String]
     let tutorial: String
     let cuisineType: Cuisine
-    /*
-     Need to add..
-     createdBy: Int
-     createdOnDate: Date
-     rating?
-     
-     */
+    let createdBy: String
 }
 
-enum Cuisine: Int, CustomStringConvertible, Codable {
+enum Cuisine: Int, CustomStringConvertible, Codable{
+    
+    
     
     case asian = 1
     case bbq = 2
@@ -61,7 +56,7 @@ enum Cuisine: Int, CustomStringConvertible, Codable {
     }
 }
 
-enum RecipeDifficulty: Int, CustomStringConvertible, Codable {
+enum RecipeDifficulty: Int, CustomStringConvertible, Codable{
     
     case easy = 1
     case medium = 2

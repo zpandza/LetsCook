@@ -8,32 +8,15 @@
 import Foundation
 
 class IngredientViewModel: ObservableObject {
-    @Published var ingredientData: [Ingredient] = []
+    @Published var ingredientData: [String] = []
     @Published var filterString: String = ""
-    @Published var selectedIngredients: [Ingredient] = []
-
-    let data = [
-        Ingredient(name: "Egg", proteins: 13, carbs: 0.7, fats: 9.5),
-        Ingredient(name: "Bun", proteins: 4, carbs: 28, fats: 2),
-        Ingredient(name: "Hamburger patty", proteins: 16, carbs: 3, fats: 20),
-        Ingredient(name: "Ketchup", proteins: 2, carbs: 14, fats: 0),
-        Ingredient(name: "Tomato", proteins: 0, carbs: 0, fats: 0),
-        Ingredient(name: "Salad", proteins: 0, carbs: 0, fats: 0),
-        Ingredient(name: "Nesto", proteins: 4, carbs: 10, fats: 10)
-    ]
-//    func toggleDislikedFood(ingredient: Ingredient) {
-//        if let index = dislikedFood.firstIndex(where: {
-//            $0.name == ingredient.name
-//        }){
-//            dislikedFood.remove(at: index)
-//            return
-//        }
-//        dislikedFood.append(ingredient)
-//    }
+    @Published var selectedIngredients: [String] = []
     
-    func toggleIngredient(ingredient: Ingredient) {
+    let data = ["Mayonnaise", "Ketchup", "Mustard", "Green salad", "Tomato", "Mushrooms", "Spinach", "Carrot", "Onion", "Garlic", "Ginger", "Peas", "Chicken", "Turkey", "Duck", "Beef", "Goose", "Pork", "Lamb", "Shrimp", "Squid", "Lobster", "Clam", "Trout", "Butter", "Salt", "Pepper", "Milk", "Yogurt", "Cheese", "Ham", "Bun", "Egg", "Pasta", "Flour", "Lemon", "Sugar", "Rice", "Cereals", "Chocolate", "Bread", "Potato", "Orange", "Noodles"]
+    
+    func toggleIngredient(ingredient: String) {
         if let index = selectedIngredients.firstIndex(where: {
-            $0.name == ingredient.name
+            $0 == ingredient
         }){
             selectedIngredients.remove(at: index)
             return
@@ -41,9 +24,9 @@ class IngredientViewModel: ObservableObject {
         selectedIngredients.append(ingredient)
     }
     
-    func isIngredientSelected(ingredient: Ingredient) -> Bool{
+    func isIngredientSelected(ingredient: String) -> Bool{
         if selectedIngredients.contains(where: {
-            return $0.name == ingredient.name
+            return $0 == ingredient
         }){
             return true
         }
@@ -51,10 +34,10 @@ class IngredientViewModel: ObservableObject {
     }
     
     func filterList() {
-        var tempData: [Ingredient]
+        var tempData: [String]
         if filterString != "" {
             tempData = ingredientData.filter { (ingredient) -> Bool in
-                return ingredient.name.lowercased().starts(with: filterString.lowercased())
+                return ingredient.lowercased().starts(with: filterString.lowercased())
             }
         } else {
             tempData = data

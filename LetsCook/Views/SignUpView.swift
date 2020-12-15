@@ -42,7 +42,7 @@ struct SignUpView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
-                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.green).opacity(0.7))
                     })
                 }
             }.padding()
@@ -118,7 +118,7 @@ struct SignUpFormF: View {
             Text("Proceed")
                 .foregroundColor(.white)
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+                .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.green).opacity(0.7))
         }.disabled(validation.firstPageEmpty())
     }
 }
@@ -186,7 +186,7 @@ struct SignUpFormS: View {
                 Text("Proceed")
                     .foregroundColor(.white)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.green).opacity(0.7))
             }
         }
         
@@ -199,7 +199,7 @@ struct SignUpFormT: View {
     @StateObject var viewModel: LoginViewModel
     @ObservedObject private var ingredientViewModel: IngredientViewModel = IngredientViewModel()
     @State var currentSearch: String = ""
-    @State var filteredIngredients: [Ingredient] = IngredientViewModel().ingredientData
+    @State var filteredIngredients: [String] = IngredientViewModel().ingredientData
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
@@ -214,15 +214,15 @@ struct SignUpFormT: View {
                 })
             
             List {
-                ForEach(ingredientViewModel.ingredientData){ ingredient in
+                ForEach(ingredientViewModel.ingredientData, id: \.self){ ingredient in
                     HStack {
-                        Text(ingredient.name)
+                        Text(ingredient)
                             .font(.headline)
                         Spacer()
                         Image(systemName: viewModel.isFoodDisliked(ingredient: ingredient) ? "checkmark" : "")
                     }.onTapGesture {
                         viewModel.toggleDislikedFood(ingredient: ingredient)
-                        print(ingredient.name)
+                        print(ingredient)
                     }
                 }
             }
@@ -234,7 +234,7 @@ struct SignUpFormT: View {
                 Text("Proceed")
                     .foregroundColor(.white)
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.blue))
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.green).opacity(0.7))
             }
         }
     }

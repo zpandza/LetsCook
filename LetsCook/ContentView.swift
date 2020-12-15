@@ -32,15 +32,15 @@ struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
-        Color("AppBlue").edgesIgnoringSafeArea(.all)
+        Color(#colorLiteral(red: 0, green: 0.5765684247, blue: 0.3433374166, alpha: 1)).edgesIgnoringSafeArea(.all)
         
         VStack {
             VStack{
                 Spacer()
                 Text("Let's cook!")
                     .foregroundColor(.white)
-                    .font(.title)
-                Image("logo")
+                    .font(.system(.largeTitle))
+                Image("pizza-icon")
                     .resizable()
                     .frame(width: screenWidth*0.3,
                            height: screenWidth*0.3)
